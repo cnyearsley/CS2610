@@ -1,8 +1,29 @@
 /* ----------------------------------------
                 General
 -----------------------------------------*/
+body{
+    width: 80%;
+    min-height: 500px;
+    margin: auto;
+    /*border: 5px solid black;*/
+    background-color: blue;
+}
+#site-header{
+    width: 100%;
+    height: 100px;
+    /*margin: auto;*/
+    outline: solid 3px #ccc;
+}
+#header-buttons{
 
-
+}
+#site-body{
+    width: 80%;
+    /*outline: solid 3px cyan;*/
+    margin: auto;
+    min-height: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 
 
