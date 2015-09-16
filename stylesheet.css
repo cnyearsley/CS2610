@@ -2,20 +2,32 @@
                 General
 -----------------------------------------*/
 body{
-    width: 80%;
+    /*width: 80%;*/
     min-height: 500px;
     margin: auto;
     /*border: 5px solid black;*/
-    background-color: blue;
+    background-color: white;
+}
+#master-site-body{
+    width: 80%;
+    margin: auto;
 }
 #site-header{
     width: 100%;
     height: 100px;
+    background-color: blue;
     /*margin: auto;*/
     outline: solid 3px #ccc;
+    position: fixed;
+    margin: auto;
+    text-align: center;
+}
+#header-buttons > tr > td {
+    padding-left: 100px;
+    padding-right: 100px;
 }
 #header-buttons{
-
+    margin: auto;
 }
 #site-body{
     width: 80%;
