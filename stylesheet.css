@@ -40,7 +40,7 @@ footer{
 	height: 100%;
 	margin: 0 10px 0 10px;
 	border: none;
-	background-color: #808080;
+	background-color: #ccc;
 }
 .header-buttons:hover{
 	background-color: #7A9999;
@@ -59,7 +59,7 @@ footer{
 	position: fixed;
 }
 #master-site-body{
-	background-image: url("woven_seamless_bg.jpg");
+	background-image: url("seamless_blue.jpg");
 	width: 70%;
 	margin: auto;
 }
@@ -68,7 +68,7 @@ footer{
     /*outline: solid 3px cyan;*/
     margin: auto;
     min-height: 1000px;
-	 background-color: rgba(255, 255, 255, 0.5);
+	 background-color: rgba(255, 255, 255, 0.35);
 }
 #login-status{
 	position: relative;
