@@ -22,7 +22,8 @@ footer{
 }
 #master-site-body{
     width: 80%;
-    margin: auto auto auto 150px;
+    margin: auto;
+    margin-top: 500px;
 }
 #site-header-master{
     width: 100%;
@@ -68,12 +69,19 @@ footer{
     /*outline: solid 3px cyan;*/
     margin: auto;
     min-height: 1000px;
-	 background-color: rgba(255, 255, 255, 0.35);
+	background-color: rgba(255, 255, 255, 0.35);
+	padding-top: 100px;
 }
 #login-status{
 	position: relative;
 	text-align: right;
 
+}
+#main-logo:hover{
+	cursor pointer;
+}
+.mini-body{
+	margin: 200px;
 }
 .no-padding{
 	padding: 0px;
