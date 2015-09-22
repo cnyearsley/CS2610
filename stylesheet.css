@@ -52,10 +52,8 @@ footer{
 #header-buttons{
     min-height: 10px;
     width: 100%;
-	/*border: 1px solid green;*/
 	margin-top: 22px;
 	background-color: rgba(0,0,0,0.0);
-	padding: 0px;
 	text-align: center;
 	position: fixed;
 }
@@ -67,9 +65,8 @@ footer{
 }
 #site-body{
     width: 95%;
-    /*outline: solid 3px cyan;*/
     margin: auto;
-    min-height: 375px;
+    min-height: 480px;
 	background-color: rgba(255, 255, 255, 0.45);
 	padding-top: 100px;
 	padding-left: 20px;
@@ -116,17 +113,31 @@ footer{
 -----------------------------------------*/
 
 #welcome-text{
-	/*width: 100%;*/
-	/*min-height: 200px;*/
 	margin: auto;
 	outline: solid 3px #ccc;
-	/*text-align: center;*/
 	display: none;
 	padding: 50px;
 	background-color: white;
 }
 #welcome-text > p {
 	text-align: center;
+}
+#welcome-buttons{
+	text-align: center;
+	margin: 50px auto auto auto;
+	display: none;
+}
+#welcome-buttons > button{
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+    font-size: 25px;
+}
+#welcome-buttons > button:nth-child(1){
+	margin-right: 20px;
+}
+#welcome-buttons > button:nth-child(2){
+	margin-left: 20px;
 }
 
 
