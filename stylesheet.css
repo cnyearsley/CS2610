@@ -99,20 +99,27 @@ footer{
   text-align: center; /*Added by Andrew 9/25*/
 }
 
+h2{
+    size: 24px;
+    font-size: 24px;
+    text-align: center;
+    font-family: cursive;
 
+}
 
 /* ----------------------------------------
                 Andrew
 -----------------------------------------*/
 
 .profile-div{
-    background-color: white;
+    background-color: #A0A0A0;
     border-radius: 5%;
-    border: 1px black solid;
+    border: 2px white solid;
     margin: 20px auto;
     postion: absolute;
     text-align: center;
     width: 300px;
+    font-family: cursive;
 }
 
 #profile-pic{
@@ -124,11 +131,11 @@ footer{
 }
 
 #profile-name{
-    height: 50px;
+    height: 25px;
 }
 
 #profile-email{
-  height: 50px;
+  height: 25px;
 }
 
 #profile-bio{
@@ -139,6 +146,9 @@ footer{
   height: 50px;
   width: 100px;
   margin: 20px auto;
+}
+
+.profile-text{
 }
 
 /* ----------------------------------------
