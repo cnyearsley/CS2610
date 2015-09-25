@@ -267,3 +267,16 @@ h2{
 /* ----------------------------------------
                 Yancy
 -----------------------------------------*/
+.search {
+    font-family: 'Indie Flower', cursive;
+    font-size: 32;
+    font-weight: bold;
+}
+
+.saved-search {
+    font-family: 'Indie Flower', cursive;
+    font-size: 28    ;
+}
+
+
+/**/
