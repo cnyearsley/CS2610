@@ -98,6 +98,7 @@ footer{
 }
 .center{
 	margin: auto;
+  text-align: center; /*Added by Andrew 9/25*/
 }
 
 
@@ -106,9 +107,41 @@ footer{
                 Andrew
 -----------------------------------------*/
 
+.profile-div{
+    background-color: white;
+    border-radius: 5%;
+    border: 1px black solid;
+    margin: 20px auto;
+    postion: absolute;
+    text-align: center;
+    width: 300px;
+}
 
+#profile-pic{
+    height: 150px;
+    width:150px;
+    border-radius:50%;
+    /*margin-top: 100px;*/
+    background: url(https://media.licdn.com/media/p/8/005/061/128/1903861.jpg) no-repeat;
+}
 
+#profile-name{
+    height: 50px;
+}
 
+#profile-email{
+  height: 50px;
+}
+
+#profile-bio{
+  height: 200px;
+}
+.profile-buttons{
+  background-color: white;
+  height: 50px;
+  width: 100px;
+  margin: 20px auto;
+}
 
 /* ----------------------------------------
                 Caleb
