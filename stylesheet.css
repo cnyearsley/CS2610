@@ -15,6 +15,7 @@ header {
 	width: 100%;
 	background-color: white;
 	margin-bottom: 0px;
+  z-index: 1;
 }
 footer{
 	margin: auto;
@@ -56,6 +57,7 @@ footer{
 	background-color: rgba(0,0,0,0.0);
 	text-align: center;
 	position: fixed;
+  z-index: 2;
 }
 #master-site-body{
 	background-image: url("seamless_blue.jpg");
@@ -188,10 +190,78 @@ h2{
 /* ----------------------------------------
                 Justin
 -----------------------------------------*/
+.jh-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 0 2%;
+  padding-right: 0 1%;
+}
+.jh-clear:after, .jh-squeeze:after {
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+}
+
+.jh-squeeze {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
+
+.jh-box-wrap {
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  padding: 0 auto;
+  postion: relative;
+}
+
+.box {
+  width: 45%;
+  border: solid 1px #CCC;
+  float: left;
+  padding: 5px;
+  }
+
+.box:nth-child(n){
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 1%;
+}
+
+/*.box:nth-child(3n){
+  margin-right: 0;
+  margin-bottom: 0;
+}*/
 
 
+  .box img {
+    display: block;
+    margin: 0 0 10px;
+    width: 100%;
+  }
 
+  .jh-btn {
+    background: #FFF;
+    border: solid 1px #CCC;
+    height: 25px;
+    text-align: center;
+    width: 75px;
+  }
 
+  .pull--right {
+    float: right !important;
+  }
+
+  .pull--left {
+    float: left !important;
+  }
 
 
 /* ----------------------------------------
