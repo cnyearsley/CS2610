@@ -107,9 +107,9 @@ footer{
                 Andrew
 -----------------------------------------*/
 .profile-div{
-    background-color: white;
+    background-color: #A0A0A0;
     border-radius: 5%;
-    border: 1px black solid;
+    border: 2px white solid;
     margin: 20px auto;
     postion: absolute;
     text-align: center;
