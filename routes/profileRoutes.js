@@ -9,6 +9,7 @@ router.get('/stippets', function(req, res) {
     , username: data.login
     , emailAddress: data.email
     , bio: data.bio
+    , avatar: data.avatar_url
   })
 })
 
