@@ -7,6 +7,8 @@ var express = require('express')
   , profileRoutes = require('./routes/profileRoutes')
   , dashboardRoutes = require('./routes/dashboardRoutes')
 
+var config = require('./config')
+
 var app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'base'}));
