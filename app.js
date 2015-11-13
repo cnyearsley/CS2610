@@ -6,6 +6,7 @@ var express = require('express')
   , marketingRoutes = require('./routes/marketingRoutes')
   , profileRoutes = require('./routes/profileRoutes')
   , dashboardRoutes = require('./routes/dashboardRoutes')
+  , searchRoutes = require('./routes/searchRoutes')
 
 var config = require('./config')
 
@@ -17,6 +18,9 @@ app.set('view engine', 'handlebars');
 app.use('/', marketingRoutes);
 app.use('/profile', profileRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/authorize', marketingRoutes);
+app.use('/auth/finalize', marketingRoutes)
+app.use('/search', searchRoutes)
 
 app.use(express.static(path.join(__dirname, 'public')));
 
