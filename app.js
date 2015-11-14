@@ -3,13 +3,17 @@ var express = require('express')
   , exphbs = require('express-handlebars')
   //, profileData = require('./stippets.json')
   , port = 3000
-  , marketingRoutes = require('./routes/marketingRoutes')
+
+var marketingRoutes = require('./routes/marketingRoutes')
   , profileRoutes = require('./routes/profileRoutes')
   , dashboardRoutes = require('./routes/dashboardRoutes')
   , searchRoutes = require('./routes/searchRoutes')
 
 var config = require('./config')
 var session = require('express-session')
+var bodyParser = require('body-parser')
+var querystring = require('querystring')
+var request = require('request')
 
 var app = express();
 
@@ -22,6 +26,8 @@ app.use(session ({
     resave: false,
     saveUninitialized: true
 }));
+
+app.use(bodyParser.urlencoded({extended:false}))
 
 app.use('/', marketingRoutes);
 app.use('/profile', profileRoutes);
