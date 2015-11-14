@@ -24,6 +24,9 @@ router.get('/', function(req, res, next) {
   })
 })
 
+router.use(function(err, req, res, next) {
+    res.redirect('./')
+});
 //error handling "next" functions goes here, we think. Redirect user to login screen when access_token is invalid.
 
 

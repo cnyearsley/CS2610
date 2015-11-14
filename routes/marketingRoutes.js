@@ -7,8 +7,8 @@ var session = require('express-session')
 var router = express.Router();
 
 
-
 router.get('/', function(req, res) {
+  res.session.access_token = "";
   res.render('index', {
     layout: 'auth_base',
   })
@@ -55,6 +55,12 @@ router.get('/auth/finalize', function(req,res,next){
         req.session.access_token = data.access_token
         res.redirect('/dashboard')
     })
+})
+
+router.use(function(err, req, res, next){
+  res.render('./', {
+    layout: 'auth_base'
+  })
 })
 
 module.exports = router;
