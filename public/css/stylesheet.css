@@ -124,6 +124,12 @@ footer{
     /*margin-top: 100px;*/
 }
 
+#profile-pic > img {
+    height: 150px;
+    width:150px;
+    border-radius:50%;
+}
+
 #profile-name{
     height: 50px;
 }
