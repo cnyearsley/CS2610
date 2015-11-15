@@ -8,7 +8,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res) {
-  res.session.access_token = "";
+  // res.session.access_token = "";
   res.render('index', {
     layout: 'auth_base',
   })

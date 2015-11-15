@@ -20,6 +20,7 @@ router.post('/', function(req, res, next){
     try {
       var feed = JSON.parse(body)
       if (feed.meta.code > 200) {
+        console.log(feed.meta.error_message);
         return next(feed.meta.error_message);
       }
     }
@@ -27,7 +28,7 @@ router.post('/', function(req, res, next){
         return next(err)
     }
     //  console.log(body);
-    res.redirect('./dashboard', {
+    res.render('./dashboard', {
       feed: feed.data
     })
   })
