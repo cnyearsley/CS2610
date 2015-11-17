@@ -3,7 +3,10 @@ var exphbs = require('express-handlebars')
 var cfg = require('../config');
 var querystring = require('querystring')
 var request = require('request')
+var session = require('express-session')
 var router = express.Router();
+
+
 
 router.get('/', function(req, res) {
   res.render('index', {
@@ -49,7 +52,7 @@ router.get('/auth/finalize', function(req,res,next){
         catch(err) {
             return next(err)
         }
-        req.access_token = data.access_token //req.session.access_token = data.access_token
+        req.session.access_token = data.access_token
         res.redirect('/dashboard')
     })
 })

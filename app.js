@@ -9,11 +9,19 @@ var express = require('express')
   , searchRoutes = require('./routes/searchRoutes')
 
 var config = require('./config')
+var session = require('express-session')
 
 var app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'base'}));
 app.set('view engine', 'handlebars');
+
+app.use(session ({
+    cookieName: 'session',
+    secret: 'a;lsdgha;ldjflvhdjaivnojs',
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use('/', marketingRoutes);
 app.use('/profile', profileRoutes);

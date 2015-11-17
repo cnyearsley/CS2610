@@ -1,54 +1,21 @@
 <div class="jh-content">
   <div class="jh-squeeze">
     <div class="jh-box-wrap jh-clear">
-      <div class="box">
-        <img src="/images/cactus_pic.jpg"/>
-        <div class="group-jh-btn jh-clear">
-          <button class="jh-btn accent-1 pull--left">Like</button>
-          <button class="jh-btn accent-1 pull--right">Comment</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <img src="/images/cactus_pic.jpg"/>
-        <div class="group-jh-btn jh-clear">
-          <button class="jh-btn accent-1 pull--left">Like</button>
-          <button class="jh-btn accent-1 pull--right">Comment</button>
-        </div>
-      </div>
-
-
-      <div class="box">
-        <img src="/images/cactus_pic.jpg"/>
-        <div class="group-jh-btn jh-clear">
-          <button class="jh-btn accent-1 pull--left">Like</button>
-          <button class="jh-btn accent-1 pull--right">Comment</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <img src= "/images/cactus_pic.jpg"/>
-        <div class="group-jh-btn jh-clear">
-          <button class="jh-btn accent-1 pull--left">Like</button>
-          <button class="jh-btn accent-1 pull--right">Comment</button>
-        </div>
-      </div>
-
-    <div class="box">
-      <img src="/images/cactus_pic.jpg"/>
-      <div class="group-jh-btn jh-clear">
-        <button class="jh-btn accent-1 pull--left">Like</button>
-        <button class="jh-btn accent-1 pull--right">Comment</button>
-      </div>
-    </div>
-
-  <div class="box">
-    <img src="/images/cactus_pic.jpg"/>
-    <div class="group-jh-btn jh-clear">
-      <button class="jh-btn accent-1 pull--left">Like</button>
-      <button class="jh-btn accent-1 pull--right">Comment</button>
-    </div>
-  </div>
+        {{#each feed}}
+            <div class="box">
+                <img src="{{this.images.standard_resolution.url}}" alt="" />
+                <div class="group-jh-btn jh-clear">
+                    <button class="jh-btn accent-1 pull--left">Like</button>
+                    <span class="jh-btn accent-1 pull--left">
+                        {{this.likes.count}}
+                    </span>
+                    <button class="jh-btn accent-1 pull--right">Comment</button>
+                    <span class="jh-btn accent-1 pull--right">
+                        {{this.comments.count}}
+                    </span>
+                </div>
+            </div>
+        {{/each}}
 
 </div>
 </div>
