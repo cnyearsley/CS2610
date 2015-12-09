@@ -15,6 +15,9 @@ var bodyParser = require('body-parser')
 var querystring = require('querystring')
 var request = require('request')
 
+var db = require('./db')
+var Saved_searches = require('./models/saved_searches')
+
 var app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'base'}));
@@ -38,6 +41,14 @@ app.use('/search', searchRoutes)
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(port);
-
-console.log('Server running at http:127.0.0.1:' + port + '/');
+db.connect('mongodb://user:password@ds027825.mongolab.com:27825/instagram_project', function(err) {
+  if (err) {
+    console.log('Unable to connect to Mongo.')
+    process.exit(1)
+  } else {
+    app.listen(3000, function() {
+      console.log('Database connection established...')
+      console.log('Listening on port 3000...')
+    })
+  }
+})
