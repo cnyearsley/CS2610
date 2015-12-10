@@ -1,6 +1,23 @@
-<div class="profile-div" id="profile-pic"><img src={{avatar_url}}/></div>
-<h2 class="center" style="font-family: cursive">{{username}}</h2>
-<div class="profile-div" id="profile-name">{{name}}</div>
-<div class="profile-div" id="profile-email">{{emailAddress}}</div>
-<div class="profile-div" id="profile-bio">{{bio}}</div>
-<div class="center"><a href=""><button class="profile-buttons">Save</button></a></div>
+<div class="profile-div" id="profile-pic">
+    <img src="{{avatar_url}}"/>
+</div>
+<form align="center" class="profile-form" action="" method="post">
+  <p>
+    <input class="profile-div" id="profile-username" type="text"
+      name="username" value="{{username}}" placeholder="Username">
+  </p>
+  <p>
+    <input class="profile-div" id="profile-name" type="text"
+      name="name" value="{{name}}" placeholder="Name">
+  </p>
+  <p>
+    <input class="profile-div" id="profile-website" type="text"
+      name="website" value="{{website}}" placeholder="Website">
+  </p>
+  <p>
+    <textarea class="profile-div" id="profile-bio" name="bio">
+      {{bio}}
+    </textarea>
+  </p>
+  <input type="submit" name="save" value="Save">
+</form>
