@@ -106,11 +106,15 @@ footer{
 /* ----------------------------------------
                 Andrew
 -----------------------------------------*/
+.profile-form{
+  test-align: center;
+}
+
 .profile-div{
     background-color: #A0A0A0;
     border-radius: 5%;
     border: 2px white solid;
-    margin: 20px auto;
+    margin: 0px auto;
     postion: absolute;
     text-align: center;
     width: 300px;
@@ -121,20 +125,21 @@ footer{
     height: 150px;
     width:150px;
     border-radius:50%;
-    /*margin-top: 100px;*/
+    margin-top: 20px;
 }
 
 #profile-pic > img {
     height: 150px;
     width:150px;
     border-radius:50%;
+
 }
 
 #profile-name{
     height: 50px;
 }
 
-#profile-email{
+#profile-website{
   height: 50px;
 }
 
