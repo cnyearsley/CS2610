@@ -17,6 +17,7 @@ var request = require('request')
 
 var db = require('./db')
 var Saved_searches = require('./models/saved_searches')
+var Users = require('./models/users')
 
 var app = express();
 
@@ -40,6 +41,27 @@ app.use('/auth/finalize', marketingRoutes)
 app.use('/search', searchRoutes)
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+request.post(options, function(error, response, body){
+  var data = JSON.parse(body)
+  var user = data.user
+
+  req.session.access_token = data.access_token
+  req.session.userID = data.user.id
+
+  user._id = user.id
+  delete user.id
+
+  Users.find(user._id, function(document){
+    if(!document){
+      Users.insert(user, function(result) {
+        res.redirect('/dashboard')
+      })
+    } else {
+      res.redirect('/dashboard')
+    }
+  })
+})
 
 db.connect('mongodb://user:password@ds027825.mongolab.com:27825/instagram_project', function(err) {
   if (err) {
