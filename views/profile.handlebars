@@ -1,23 +1,32 @@
+
 <div class="profile-div" id="profile-pic">
     <img src="{{avatar_url}}"/>
 </div>
 <form align="center" class="profile-form" action="" method="post">
+  <input type="hidden" name="_id" value="{{user._id}}">
   <p>
     <input class="profile-div" id="profile-username" type="text"
-      name="username" value="{{username}}" placeholder="Username">
+      name="username" value="{{user.username}}" placeholder="Username">
   </p>
   <p>
     <input class="profile-div" id="profile-name" type="text"
-      name="name" value="{{name}}" placeholder="Name">
+      name="full_name" value="{{user.full_name}}" placeholder="Name">
   </p>
   <p>
     <input class="profile-div" id="profile-website" type="text"
-      name="website" value="{{website}}" placeholder="Website">
+      name="website" value="{{user.website}}" placeholder="Website">
   </p>
   <p>
-    <textarea class="profile-div" id="profile-bio" name="bio">
+    <input class="profile-div" id="profile-bio" type="text"
+      name="bio" value="{{user.bio}}" placeholder="Bio">
+    <!-- <textarea class="profile-div" id="profile-bio" name="bio">
       {{bio}}
-    </textarea>
+    </textarea> -->
   </p>
-  <input type="submit" name="save" value="Save">
+  {{#if success}}
+    <p>
+      {{success}}
+    </p>
+  {{/if}}
+  <button type="submit">Update</button>
 </form>

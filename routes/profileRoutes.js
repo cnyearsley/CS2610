@@ -1,32 +1,35 @@
 var express = require('express');
 var router = express.Router();
-// var data = require('../stippets.json');
 var request = require('request')
+var Users = require('../models/users')
 
 router.get('/', function(req, res, next){
-  var options = {
-    url:"https://api.instagram.com/v1/users/self/?access_token="
-      + req.session.access_token
-  }
-  request.get(options, function(error, response, body){
-    try{
-      var user = JSON.parse(body)
-      console.log(user.data.profile_picture);
-      if(user.meta.code>200){
-        console.log(user.meta.error_message)
-        return next(user.meta.error_message)
+
+  Users.find(req.session.userId, function(document){
+    var options = {
+      url:"https://api.instagram.com/v1/users/self/?access_token="
+        + req.session.access_token
+    }
+    request.get(options, function(error, response, body){
+      try{
+        var instagramUser = JSON.parse(body)
+        if(instagramUser.meta.code>200){
+          return next(instagramUser.meta.error_message)
+        }
+        if(!document){
+          res.redirect('/')
+        } else {
+          // console.log(instagramUser)
+          res.render('profile',{
+            layout:'base'
+            , user: document
+            , avatar_url: instagramUser.data.profile_picture
+          })
+        }
       }
-    }
-    catch(err){
-      return next(err)
-    }
-    res.render('profile',{
-      layout:'base'
-      , name: user.data.full_name
-      , username: user.data.username
-      , website: user.data.website
-      , bio: user.data.bio
-      , avatar_url: user.data.profile_picture
+      catch(err){
+        return next(err)
+      }
     })
   })
 })
@@ -34,16 +37,12 @@ router.get('/', function(req, res, next){
 router.use(function(err, req, res, next){
   res.redirect('./')
 })
-//
-// router.get('/stippets', function(req, res) {
-//   res.render('profile', {
-//     layout: 'base'
-//     , name: data.name
-//     , username: data.login
-//     , website: data.url
-//     , bio: data.bio
-//     , avatar_url: data.avatar_url
-//   })
-// })
+
+router.post('/', function(req, res){
+  var user = req.body
+  Users.update(user, function() {
+    res.redirect('/profile')
+  })
+})
 
 module.exports = router;
