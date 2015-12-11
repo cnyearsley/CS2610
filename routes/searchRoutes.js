@@ -5,11 +5,33 @@ var request = require('request')
 var db = require('../db')
 var Saved_searches = require('../models/saved_searches')
 
+var user_data = {} || user_data;
+
 router.get('/', function(req, res) {
+    var options = {
+    url:"https://api.instagram.com/v1/users/self/?access_token="
+      + req.session.access_token
+  }
+  request.get(options, function(error, response, body){
+    try{
+      var user = JSON.parse(body)
+      // console.log("The profile picture is: ", user.data.profile_picture);
+      console.log("User logged in: ", user.data.username);
+      user_data.username = user.data.username;
+      if(user.meta.code>200){
+        console.log("error durp: ", user.meta.error_message)
+        return next(user.meta.error_message)
+      }
+    }
+    catch(err){
+      return next(err)
+    }
+  })
     res.render('search', {
         layout: 'base'
     })
 })
+
 
 router.post('/', function(req, res, next){
   var tagName = req.body.query
@@ -23,8 +45,8 @@ router.post('/', function(req, res, next){
 
   if(saveSearch) {
       console.log("Inserting stuffs...")
-      Saved_searches.insert('user', tagName, function() {
-          console.log("It wurked!");
+      Saved_searches.insert(user_data.username, tagName, function() {
+          console.log("It wurked! username/search: ", user_data.username, "/", tagName);
       })
   }
 
