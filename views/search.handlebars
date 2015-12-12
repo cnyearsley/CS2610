@@ -7,8 +7,10 @@
   <input type="submit" name="submit" value="Submit">
 </form>
 
-<ul>
-{{#each savedSearch}}
-    <li>{{ this.search }}</li>
-{{/each}}
-</ul>
+<form class="search" action="/search" method="post">
+    {{#each savedSearch}}
+        <button type="button" name="button">Delete</button>
+        <input type="text" name="saved-query" value="{{this.search}}" style="display: none">
+        <input class='saved-search-list' type='submit' name='submit' value={{this.search}}></input><br>
+    {{/each}}
+</form>
