@@ -51,10 +51,21 @@ router.post('/', function(req, res, next){
   var tagName = req.body.query
   var saveSearch = req.body.saveSearch
 
+  console.log("The req.body: ", req.body)
+
   if(typeof saveSearch == 'undefined') {
       saveSearch = false;
   } else {
       saveSearch = true;
+  }
+
+  if (req.body.deleteSave != '') {
+    console.log("you are deleting: ", req.body.deleteSave)
+    // function deleteSavedSearch(callback) {
+      Saved_searches.remove(req.body.deleteSave, function(result) {
+        callback(result);
+      });
+    // }
   }
 
   if(saveSearch) {

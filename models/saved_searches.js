@@ -14,6 +14,21 @@ exports.insert = function(user, search, callback) {
   })
 }
 
+exports.remove = function(quote, callback) {
+  console.log("inside the remove function")
+  var collection = db.get().collection('saved_searches')
+
+  try{
+      // collection.remove({user: username}, {'search': true, '_id': false}).toArray(function(err, result) {
+      //     console.log("removed: ", username);
+      //     callback(result);
+      collection.remove({search: quote})
+      // });
+  } catch (err) {
+      console.log(err)
+  }
+}
+
 exports.findAll = function(username, callback) {
     console.log("Username inside find: ", username);
     var collection = db.get().collection('saved_searches')
