@@ -12,25 +12,39 @@ router.get('/', function(req, res) {
     url:"https://api.instagram.com/v1/users/self/?access_token="
       + req.session.access_token
   }
+  // var searches;
   request.get(options, function(error, response, body){
-    try{
-      var user = JSON.parse(body)
-      // console.log("The profile picture is: ", user.data.profile_picture);
-      console.log("User logged in: ", user.data.username);
-      user_data.username = user.data.username;
-      if(user.meta.code>200){
-        console.log("error durp: ", user.meta.error_message)
-        return next(user.meta.error_message)
-      }
-    }
-    catch(err){
-      return next(err)
-    }
-  })
-    res.render('search', {
-        layout: 'base'
+        try{
+          var user = JSON.parse(body)
+          console.log("User logged in: ", user.data.username);
+          user_data.username = user.data.username;
+          if(user.meta.code>200){
+            console.log("error durp: ", user.meta.error_message)
+            return next(user.meta.error_message)
+          }
+
+          var searches = '';
+
+          Saved_searches.findAll(user_data.username, function(searches) {
+              console.log("Result before render:\n", searches)
+              res.render('search', {
+                  layout: 'base',
+                  savedSearch: searches
+              })
+          });
+
+        }
+        catch(err){
+          return next(err)
+        }
     })
 })
+
+function getSavedSearches(callback) {
+    Saved_searches.findAll(user_data.username, function(result) {
+        callback(result);
+    });
+}
 
 
 router.post('/', function(req, res, next){
@@ -49,9 +63,6 @@ router.post('/', function(req, res, next){
           console.log("It wurked! username/search: ", user_data.username, "/", tagName);
       })
   }
-
-  console.log(tagName)
-  console.log(saveSearch)
 
   var options = {
     url: 'https://api.instagram.com/v1/tags/' + tagName +
