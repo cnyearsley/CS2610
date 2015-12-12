@@ -26,7 +26,6 @@ router.get('/', function(req, res) {
           var searches = '';
 
           Saved_searches.findAll(user_data.username, function(searches) {
-              console.log("Result before render:\n", searches)
               res.render('search', {
                   layout: 'base',
                   savedSearch: searches

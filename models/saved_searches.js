@@ -15,12 +15,10 @@ exports.insert = function(user, search, callback) {
 }
 
 exports.findAll = function(username, callback) {
-    console.log("Username inside find: ", username);
     var collection = db.get().collection('saved_searches')
 
     try{
         collection.find({user: username}, {'search': true, '_id': false}).toArray(function(err, result) {
-            console.log("Result in find:\n", result);
             callback(result);
         });
     } catch (err) {
