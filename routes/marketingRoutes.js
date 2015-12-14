@@ -49,27 +49,26 @@ router.get('/auth/finalize', function(req,res,next){
     request.post(options, function(error, response, body) {
       try{
           var data = JSON.parse(body)
-          //var user = data.user
+          var user = data.user
       }
       catch(err) {
           return next(err)
       }
       req.session.access_token = data.access_token
-      res.redirect('/dashboard')
-      // req.session.userId = data.user.id
-      //
-      // user._id = user.id
-      // delete user.id
-      //
-      // Users.find(user._id, function(document){
-      //   if(!document){
-      //     Users.insert(user, function(result) {
-      //       res.redirect('/dashboard')
-      //     })
-      //   } else {
-      //     res.redirect('/dashboard')
-      //   }
-      // })
+      req.session.userId = data.user.id
+
+      user._id = user.id
+      delete user.id
+
+      Users.find(user._id, function(document){
+        if(!document){
+          Users.insert(user, function(result) {
+            res.redirect('/dashboard')
+          })
+        } else {
+          res.redirect('/dashboard')
+        }
+      })
     })
 
   router.use(function(err, req, res, next){
